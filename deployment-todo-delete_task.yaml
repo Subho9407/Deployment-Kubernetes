@@ -1,0 +1,26 @@
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: todo-delete-task-deployment
+  spec: 
+    replicas: 3
+    selector: 
+      matchExpressions: 
+      - key: app
+        operator: In
+        values: 
+        - todo-delete-task
+    strategy: 
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+    template: 
+      metadata: 
+        labels: 
+          app : todo-delete-task
+      spec: 
+        containers: 
+        - image: subho9407/todobackend-delete_task
+          name: todo-delete-task-container
+          ports: 
+          - containerPort: 80

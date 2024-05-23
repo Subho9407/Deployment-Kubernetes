@@ -1,0 +1,26 @@
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: todo-get-task-deployment
+  spec: 
+    replicas: 3
+    selector: 
+      matchExpressions: 
+      - key: app
+        operator: In
+        values: 
+        - todo-get-task
+    strategy: 
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+    template: 
+      metadata: 
+        labels: 
+          app : todo-get-task
+      spec: 
+        containers: 
+        - image: subho9407/todobackend-get_task
+          name: todo-get-task-container
+          ports: 
+          - containerPort: 80
