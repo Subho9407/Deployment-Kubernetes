@@ -23,4 +23,4 @@
         - image: subho9407/todobackend-add_task
           name: todo-add-task-container
           ports: 
-          - containerPort: 80
+          - containerPort: 8000

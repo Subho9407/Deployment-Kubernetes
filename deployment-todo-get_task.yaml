@@ -23,4 +23,4 @@
         - image: subho9407/todobackend-get_task
           name: todo-get-task-container
           ports: 
-          - containerPort: 80
+          - containerPort: 8000
